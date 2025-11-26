@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses </title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+    <div class="container">
+     
+    <nav class="navbar navbar-light shadow-sm p-2 rounded mt-3" id="nav">
+        <a class=" nav-link text-center mt-3 mb-4 fw-bold fs-1" href="index.html">Campus University</a>
+
+        <div class="d-flex flex-row align-items-center " > 
+          <a class="nav-link p-3  " id="card" href="students.html">Estudiantes</a>
+          <a class="nav-link p-3 fw-bold " id="card" href="courses.html"> <strong>Cursos</strong></a>
+          <a class="nav-link p-3 " id="card" href="professors.html"> Profesores</a>
+          <a class="nav-link p-3" href="profile.html">
+            <i class="bi bi-person-circle fs-4"></i
+          ></a>
+        </div>
+        </nav>
+
+    <div class="py-4">
+
+       
+        <div class="d-flex justify-content-between align-items-center mb-3 mt-4">
+            <h2 class=" container fw-bold text-primary">Lista de Cursos</h2>
+           <button class="btn btn-primary" id="btnAddNew" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+            Agregar Curso
+           </button>
+        </div>
+
+     
+        <div class="card p-3 shadow-sm mb-4">
+            <div class="row g-3">
+
+            
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Buscar curso</label>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar por nombre o código...">
+                </div>
+
+             
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Programa</label>
+                    <select id="filterProgram" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Ingeniería">Ingeniería</option>
+                        <option value="Ciencias">Ciencias</option>
+                        <option value="Humanidades">Humanidades</option>
+                    </select>
+                </div>
+
+              
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Créditos</label>
+                    <select id="filterCredits" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="1">1 crédito</option>
+                        <option value="2">2 créditos</option>
+                        <option value="3">3 créditos</option>
+                        <option value="4">4 créditos</option>
+                    </select>
+                </div>
+
+
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Profesor</label>
+                    <select id="filterTeacher" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="Juan Pérez">Juan Pérez</option>
+                        <option value="Ana Gómez">Ana Gómez</option>
+                        <option value="Carlos Ruiz">Carlos Ruiz</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+      
+        <div id="coursesContainer" class="row g-4">
+         
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Curso de Ejemplo</h5>
+                        <p class="card-text small mb-1"><strong>Código:</strong> ABC123</p>
+                        <p class="card-text small mb-1"><strong>Programa:</strong> Ingeniería</p>
+                        <p class="card-text small mb-1"><strong>Créditos:</strong> 3</p>
+                        <p class="card-text small mb-3"><strong>Profesor:</strong> Juan Pérez</p>
+                      
+                        <div class="d-flex justify-content-between"> 
+                            <button class="btn btn-primary w-50">Editar</button>
+                        <button class="btn btn-danger w-50">Borrar</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+
+<div class="modal fade" id="modalCourse" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Agregar Curso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form id="courseForm">
+
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <label class="form-label">Nombre del Curso</label>
+              <input type="text" id="courseName" class="form-control" placeholder="Ej: Algoritmos" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Código</label>
+              <input type="text" id="courseCode" class="form-control" placeholder="Ej: ING101" required>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Programa</label>
+              <select id="courseProgram" class="form-select" required>
+                <option value="">Seleccionar...</option>
+                <option value="Ingeniería">Ingeniería</option>
+                <option value="Ciencias">Ciencias</option>
+                <option value="Humanidades">Humanidades</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Créditos</label>
+              <select id="courseCredits" class="form-select" required>
+                <option value="">Seleccionar...</option>
+                <option value="1">1 crédito</option>
+                <option value="2">2 créditos</option>
+                <option value="3">3 créditos</option>
+                <option value="4">4 créditos</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label">Profesor</label>
+              <select id="courseTeacher" class="form-select" required>
+                <option value="">Seleccionar...</option>
+                <option value="Juan Pérez">Juan Pérez</option>
+                <option value="Ana Gómez">Ana Gómez</option>
+                <option value="Carlos Ruiz">Carlos Ruiz</option>
+              </select>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" id="btnSaveCourse">Guardar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="courses.js"></script>
+</body>
+</html>

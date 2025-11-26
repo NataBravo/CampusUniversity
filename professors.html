@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professors</title>
+
+ 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      
+      <nav class="navbar navbar-light shadow-sm p-2 rounded mt-3" id="nav">
+        <a class="nav-link text-center mt-3 mb-4 fw-bold fs-1" href="index.html"
+          >Campus University</a
+        >
+
+        <div class="d-flex flex-row align-items-center">
+          <a class="nav-link p-3" id="card" href="students.html">Estudiantes</a>
+          <a class="nav-link p-3 fw-bold" id="card" href="courses.html">
+            Cursos</a
+          >
+          <a class="nav-link p-3" id="card" href="professors.html">
+            <strong>Profesores</strong></a
+          >
+
+          <a class="nav-link p-3" href="profile.html">
+            <i class="bi bi-person-circle fs-4"></i
+          ></a>
+        </div>
+      </nav>
+
+      <div class="container py-4">
+        <div class="col d-flex justify-content-between align-items-center mb-3">
+          <h2 class="mb-4 fw-bold text-primary">Listado de Profesores</h2>
+          <button
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAddProfessor"
+          >
+            Agregar Profesor
+          </button>
+        </div>
+      
+        <div id="professorsContainer" class="row g-4">
+   
+          <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Juan Pérez</h5>
+                <p class="card-text small mb-1">
+                  <strong>Curso:</strong> Programación I
+                </p>
+                <p class="card-text small mb-1">
+                  <strong>Horario:</strong> Lunes y Miércoles 10:00 - 12:00
+                </p>
+
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-primary w-50 me-2">Editar</button>
+                  <button class="btn btn-danger w-50">Borrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="modal fade" id="modalAddProfessor" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Profesor</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formAddProfessor">
+              <div class="mb-3">
+                <label class="form-label">Nombre del Profesor</label>
+                <input type="text" class="form-control" id="addName" required />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Curso</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="addCourse"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Horario</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="addSchedule"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button class="btn btn-primary" id="btnAddProfessor">
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="modalEditProfessor" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Profesor</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form id="formEditProfessor">
+              <input type="hidden" id="editId" />
+
+              <div class="mb-3">
+                <label class="form-label">Nombre del Profesor</label>
+                <input type="text" class="form-control" id="editName" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Curso</label>
+                <input type="text" class="form-control" id="editCourse" />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Horario</label>
+                <input type="text" class="form-control" id="editSchedule" />
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button class="btn btn-primary" id="btnEditProfessor">
+              Guardar Cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+    <div class="modal fade" id="modalDeleteProfessor" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-danger">Eliminar Profesor</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <p class="mb-0">
+              ¿Seguro que deseas eliminar a <strong id="deleteName"></strong>?
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+            <button class="btn btn-danger" id="btnDeleteProfessor">
+              Eliminar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <script src="professors.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+ body {
+        background-color: #f5f5e6;
+      }
+     
+      #card {
+          color: rgb(100, 96, 96);
+          font-weight: bold;
+      }
+      #card:hover {
+        color:  rgb(63, 61, 61);
+        transform: translateY(-4px);
+        transition: 0.3s;
+      }
+ #nav {
+            background-color: rgb(194, 212, 235);
+        }
