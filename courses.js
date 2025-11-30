@@ -5,35 +5,40 @@ let courses = [
         name: "Fundamentos de Programación",
         program: "Ingeniería",
         credits: 3,
-        teacher: "Juan Pérez"
+        teacher: "Juan Pérez",
+        image: "https://zimbronapps.com/wp-content/uploads/2017/12/img_5a266080313ae.png"
     },
     {
         code: "CIE202",
         name: "Biología General",
         program: "Ciencias",
         credits: 2,
-        teacher: "Ana Gómez"
+        teacher: "Ana Gómez",
+        image: "https://static.e-bordados.net/img/produtos/300px_webp/1824011.webp"
     },
     {
         code: "HUM150",
         name: "Historia Universal",
         program: "Humanidades",
         credits: 4,
-        teacher: "Carlos Ruiz"
+        teacher: "Carlos Ruiz",
+        image: "https://th.bing.com/th/id/R.3d1e25960e902928ceea888df6b18c38?rik=tr8EbiWvt4rirQ&riu=http%3a%2f%2f2.bp.blogspot.com%2f_u-Nfw4RtLso%2fS70JiS6VbzI%2fAAAAAAAAABU%2fnZtiGrpU9s8%2fS600%2fHistoriaUniversalCDRom-1.JPG&ehk=S0PRk8eQCSOzGwechgGlH4gzF4p4KlS%2f25obuvCvLNQ%3d&risl=&pid=ImgRaw&r=0"
     },
     {
         code: "ING305",
         name: "Estructuras de Datos",
         program: "Ingeniería",
         credits: 3,
-        teacher: "Juan Pérez"
+        teacher: "Juan Pérez",
+        image: "https://media.slid.es/thumbnails/guillermonunez/6145d3/algoritmos-y-estructuras-de-datos-unidad-1.jpg"
     },
     {
         code: "CIE330",
         name: "Química Orgánica",
         program: "Ciencias",
         credits: 4,
-        teacher: "Ana Gómez"
+        teacher: "Ana Gómez",
+        image: "https://static.vecteezy.com/system/resources/previews/022/761/423/original/organic-chemistry-line-icon-vector.jpg"
     }
 ];
 
@@ -62,6 +67,14 @@ function renderCourses(list) {
         col.innerHTML = `
             <div class="card shadow-sm h-100">
                 <div class="card-body">
+              
+                <div>
+                        <img src="${course.image}" 
+                            alt="Imagen del curso"  
+                           class="course-img mb-3"
+">
+                    </div>
+
                     <h5 class="card-title fw-bold">${course.name}</h5>
                     <p class="card-text small mb-1"><strong>Código:</strong> ${course.code}</p>
                     <p class="card-text small mb-1"><strong>Programa:</strong> ${course.program}</p>
@@ -170,12 +183,12 @@ btnSaveCourse.addEventListener("click", () => {
         return;
     }
 
-   
+
     if (editingCode) {
         const index = courses.findIndex(c => c.code === editingCode);
         courses[index] = newCourse;
-    } 
-    
+    }
+
     else {
         courses.push(newCourse);
     }

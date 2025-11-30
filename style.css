@@ -14,3 +14,9 @@
  #nav {
             background-color: rgb(194, 212, 235);
         }
+  
+        .course-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
